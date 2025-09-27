@@ -1,0 +1,821 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Education Coaching — Redes Creation | Bengaluru</title>
+  <meta name="description" content="Education Coaching by Redes Creation in Bengaluru — courses, mentoring, and life-skills coaching to unlock student potential. Sign up for free training." />
+  <meta name="keywords" content="education coaching, learning, Bengaluru, courses, mentoring" />
+  <link rel="canonical" href="https://www.redescreation.in/" />
+  <!-- Tailwind CSS CDN (for prototyping) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- AOS for scroll animations -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --brand-dark: #07103a;
+      --brand-purple: #5b3df6;
+      --accent: #6c4af2;
+      --muted: #6b7280;
+      --glass: rgba(255,255,255,0.08);
+    }
+    html,body{font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;}
+    /* custom shapes and hero cutout */
+    .hero-mask {
+      clip-path: polygon(0 0, 62% 0, 85% 100%, 0% 100%);
+    }
+    /* floating badges */
+    .badge-float { box-shadow: 0 10px 30px rgba(16,24,40,0.12); border-radius: 999px; }
+    /* subtle gradient background */
+    .bg-edu {
+      background: radial-gradient(1200px 600px at 10% 30%, rgba(91,61,246,0.18) 0%, rgba(87,72,230,0.08) 10%, rgba(7,16,58,1) 30%), linear-gradient(150deg, rgba(91,61,246,0.65), rgba(91,61,246,0.2));
+    }
+    /* custom nav shadow */
+    .nav-shadow { box-shadow: 0 8px 18px rgba(2,6,23,0.25); }
+    /* rounded clipped image on left for about section */
+     .rounded-clip {
+      border-top-right-radius: 4rem;
+      border-bottom-right-radius: 4rem;
+      overflow: hidden;
+    }
+    /* testimonial card */
+    .testimonial-card { background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(248,250,255,0.98)); border-radius: 1rem; }
+    /* pricing highlight */
+    .popular { box-shadow: 0 12px 40px rgba(79,70,229,0.18); transform: translateY(-6px); border: 1px solid rgba(91,61,246,0.08);}
+    /* simple focus outlines */
+    :focus { outline: 3px solid rgba(99,102,241,0.14); outline-offset: 3px; }
+    /* small helper */
+    .max-w-6x1 { max-width: 1200px; } /* approximate; you asked max-w-6x1 */
+  </style>
+</head>
+<body class="antialiased text-slate-800">
+
+  <!-- Header / Nav -->
+  <header class="fixed inset-x-0 top-0 z-50 nav-shadow bg-white/95 backdrop-blur-sm">
+    <div class="mx-auto px-6 max-w-6x1 flex items-center justify-between h-20">
+      <div class="flex items-center gap-4">
+        <a href="#" class="flex items-center gap-3" aria-label="Redes Creation home">
+          <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=80&auto=format&fit=crop&crop=faces" alt="Redes Creation logo" class="w-10 h-10 rounded-full shadow-sm">
+          <div>
+            <div class="font-extrabold text-lg text-indigo-900">Redes Creation</div>
+            <div class="text-xs -mt-1 text-slate-500">Education Coaching • Bengaluru</div>
+          </div>
+        </a>
+      </div>
+
+      <!-- desktop nav -->
+      <nav class="hidden lg:flex items-center gap-6">
+        <ul class="flex items-center gap-6 text-slate-700">
+          <li><a href="index.html" class="hover:text-indigo-600">Home</a></li>
+          <li><a href="courses.html" class="hover:text-indigo-600">Courses</a></li>
+          <li><a href="about.html" class="hover:text-indigo-600">About</a></li>
+          <li><a href="testimonial.html" class="hover:text-indigo-600">Testimonial</a></li>
+          <li><a href="blog.html" class="hover:text-indigo-600">Blog</a></li>
+          <li><a href="contact.html" class="hover:text-indigo-600">Contact</a></li>
+        </ul>
+        <a href="contact.html" class="ml-4 inline-flex items-center gap-2 bg-indigo-600 text-white px-5 py-2 rounded-full shadow hover:bg-indigo-700 transition" aria-label="Free Training">
+          Free Training
+        </a>
+      </nav>
+
+      <!-- mobile triggers -->
+      <div class="lg:hidden flex items-center gap-4">
+        <button id="searchBtn" aria-label="Search" class="p-2 rounded-md hover:bg-gray-100">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-slate-700" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M17 11a6 6 0 11-12 0 6 6 0 0112 0z"/></svg>
+        </button>
+        <button id="hamburger" aria-label="Open menu" aria-expanded="false" class="p-2 rounded-md hover:bg-gray-100">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-slate-800" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile slide-out menu -->
+  <div id="mobileMenu" class="fixed inset-0 z-40 transform translate-x-full lg:hidden" aria-hidden="true">
+    <div class="absolute inset-0 bg-black/40" id="mobileOverlay"></div>
+    <aside class="absolute right-0 top-0 h-full w-80 bg-white p-6 overflow-auto">
+      <div class="flex items-center justify-between mb-6">
+        <div class="flex items-center gap-3">
+          <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=80&auto=format&fit=crop&crop=faces" alt="logo" class="w-10 h-10 rounded-full">
+          <div>
+            <div class="font-bold">Redes Creation</div>
+            <div class="text-xs text-slate-500">Education Coaching</div>
+          </div>
+        </div>
+        <button id="closeMenu" aria-label="Close menu" class="p-2 rounded-md hover:bg-gray-100">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-slate-800" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <nav>
+        <ul class="flex flex-col gap-4 text-lg">
+          <li><a href="index.html" class="block">Home</a></li>
+          <li><a href="courses.html" class="block">Courses</a></li>
+          <li><a href="about.html" class="block">About</a></li>
+          <li><a href="testimonial.html" class="block">Testimonial</a></li>
+          <li><a href="blog.html" class="block">Blog</a></li>
+          <li><a href="contact.html" class="block">Contact</a></li>
+        </ul>
+
+        <div class="mt-6">
+          <a href="contact.html" class="block text-center bg-indigo-600 text-white py-3 rounded-full">Free Training</a>
+        </div>
+
+        <div class="mt-6">
+          <div class="text-slate-600 mb-2">Follow us</div>
+          <div class="flex gap-3">
+            <a aria-label="facebook" href="#" class="p-2 rounded bg-gray-100"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 10-11.5 9.9v-7h-2.5v-2.9h2.5V9.1c0-2.4 1.4-3.7 3.5-3.7 1 0 2 .08 2 .08v2.2h-1.1c-1.1 0-1.5.72-1.5 1.5v1.8h2.5l-.4 2.9h-2.1V22A10 10 0 0022 12z"/></svg></a>
+            <a aria-label="instagram" href="#" class="p-2 rounded bg-gray-100"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600" viewBox="0 0 24 24" fill="currentColor"><path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm5 6.2A4.8 4.8 0 1016.8 13 4.8 4.8 0 0012 8.2zM18 7.2a1.2 1.2 0 11-1.2-1.2A1.2 1.2 0 0118 7.2z"/></svg></a>
+            <a aria-label="linkedin" href="#" class="p-2 rounded bg-gray-100"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v6h-4v-6a2 2 0 00-4 0v6h-4V8h4v2a4 4 0 013.5-2zM2 8h4v12H2z"/></svg></a>
+          </div>
+        </div>
+      </nav>
+    </aside>
+  </div>
+
+  <main class="pt-24">
+
+    <!-- HERO -->
+    <section id="home" class="relative overflow-hidden bg-edu text-white">
+      <div class="max-w-6x1 mx-auto px-6 py-20 lg:py-28 flex gap-8 items-center">
+        <!-- left content -->
+        <div class="w-full lg:w-2/3">
+          <div class="max-w-3xl">
+            <p class="text-lg font-medium mb-2" data-aos="fade-right">Join me for</p>
+            <h1 class="text-5xl md:text-7xl leading-tight font-extrabold tracking-tight text-white drop-shadow-lg" data-aos="fade-up" data-aos-delay="80">Learn the secrets to Life Success</h1>
+            <p class="mt-6 text-lg text-white/80" data-aos="fade-up" data-aos-delay="140">
+              Reset your mindset, break free from self-imposed limitations, and live a life you love. Specialised coaching for students & professionals in Bengaluru.
+            </p>
+
+            <div class="mt-8 flex gap-4 items-center" data-aos="fade-up" data-aos-delay="220">
+              <a href="contact.html" class="inline-flex items-center gap-3 bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-full shadow-lg transition">
+                Get started today
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M13 5l7 7-7 7"/></svg>
+              </a>
+              <a href="courses.html" class="text-white/90 underline">See Courses</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- right image -->
+        <div class="hidden lg:block w-1/3 relative">
+          <div class="hero-mask">
+            <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1200&auto=format&fit=crop" alt="Coach portrait" class="w-full h-[520px] object-cover rounded-xl border-4 border-white/80 shadow-2xl">
+          </div>
+
+          <!-- floating tags -->
+          <div class="absolute left-6 top-40 badge-float bg-white p-2 flex items-center gap-2" data-aos="zoom-in" data-aos-delay="320">
+            <div class="bg-indigo-600 text-white rounded-full w-6 h-6 flex items-center justify-center">+</div>
+            <div class="text-sm font-medium text-slate-800">innovative thinking</div>
+          </div>
+          <div class="absolute right-6 bottom-14 badge-float bg-white p-2 flex items-center gap-2" data-aos="zoom-in" data-aos-delay="380">
+            <div class="bg-indigo-600 text-white rounded-full w-6 h-6 flex items-center justify-center">+</div>
+            <div class="text-sm font-medium text-slate-800">creative methodology</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- decorative dots -->
+      <div class="absolute right-10 top-20 opacity-30">
+        <svg width="120" height="120" viewBox="0 0 100 100"><defs></defs>
+          <g fill="#f0e8ff"><circle cx="8" cy="8" r="3"/><circle cx="25" cy="8" r="3"/><circle cx="42" cy="8" r="3"/><circle cx="59" cy="8" r="3"/><circle cx="76" cy="8" r="3"/><circle cx="8" cy="25" r="3"/><circle cx="25" cy="25" r="3"/><circle cx="42" cy="25" r="3"/><circle cx="59" cy="25" r="3"/><circle cx="76" cy="25" r="3"/></g>
+        </svg>
+      </div>
+    </section>
+
+    <!-- Featured Services -->
+    <section id="services" class="py-16">
+      <div class="max-w-6x1 mx-auto px-6">
+        <div class="grid lg:grid-cols-3 gap-8 items-center">
+          <div>
+            <h2 class="text-4xl font-extrabold text-indigo-900 mb-3" data-aos="fade-right">Community Of Life Long Learners</h2>
+            <p class="text-slate-600" data-aos="fade-right" data-aos-delay="80">Learn how to master your thoughts and transform your life through Redes Creation's best-selling programs, audios, books, and meditations.</p>
+
+            <div class="mt-6 flex gap-4">
+              <a href="#about" class="bg-indigo-600 text-white px-6 py-3 rounded-full">Know More About My Journey</a>
+            </div>
+          </div>
+
+          <div class="lg:col-span-2 grid sm:grid-cols-2 gap-6">
+            <article class="p-6 rounded-xl bg-white border shadow-sm" data-aos="fade-up" data-aos-delay="120" aria-labelledby="s1">
+              <div class="flex items-start gap-4">
+                <div class="bg-indigo-600 text-white p-3 rounded-lg inline-flex"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linejoin="round" stroke-linecap="round" stroke-width="2" d="M12 20l9-5-9-5-9 5 9 5z"/></svg></div>
+                <div>
+                  <h3 id="s1" class="font-semibold text-indigo-900">Effective leader</h3>
+                  <p class="text-slate-600 mt-1">Flexible classes designed to develop leadership and communication skills using digital-first teaching methods.</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="p-6 rounded-xl bg-white border shadow-sm" data-aos="fade-up" data-aos-delay="140" aria-labelledby="s2">
+              <div class="flex items-start gap-4">
+                <div class="bg-indigo-600 text-white p-3 rounded-lg inline-flex"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linejoin="round" stroke-linecap="round" stroke-width="2" d="M12 8c1.657 0 3 1.343 3 3v6H9v-6c0-1.657 1.343-3 3-3z"/></svg></div>
+                <div>
+                  <h3 id="s2" class="font-semibold text-indigo-900">Gain clarity</h3>
+                  <p class="text-slate-600 mt-1">Tailored coaching to help students & professionals find clarity, focus, and a step-by-step growth plan.</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="p-6 rounded-xl bg-white border shadow-sm" data-aos="fade-up" data-aos-delay="160" aria-labelledby="s3">
+              <div class="flex items-start gap-4">
+                <div class="bg-indigo-600 text-white p-3 rounded-lg inline-flex"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linejoin="round" stroke-linecap="round" stroke-width="2" d="M3 7h18M3 12h18M3 17h18"/></svg></div>
+                <div>
+                  <h3 id="s3" class="font-semibold text-indigo-900">Practical skills</h3>
+                  <p class="text-slate-600 mt-1">Hands-on modules that build real-world skills and academic confidence.</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="p-6 rounded-xl bg-white border shadow-sm" data-aos="fade-up" data-aos-delay="180" aria-labelledby="s4">
+              <div class="flex items-start gap-4">
+                <div class="bg-indigo-600 text-white p-3 rounded-lg inline-flex"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linejoin="round" stroke-linecap="round" stroke-width="2" d="M11 17a4 4 0 01-4-4V7a4 4 0 018 0v6a4 4 0 01-4 4z"/></svg></div>
+                <div>
+                  <h3 id="s4" class="font-semibold text-indigo-900">Confidence building</h3>
+                  <p class="text-slate-600 mt-1">Programs designed to enhance presentation skills, exam readiness and positive mindset.</p>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="py-20 bg-white">
+      <div class="max-w-6x1 mx-auto px-6">
+        <div class="grid lg:grid-cols-2 gap-10 items-center">
+          <div class="rounded-clip overflow-hidden" data-aos="fade-right">
+            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1200&auto=format&fit=crop" alt="Group workshop" class="w-full h-[520px] object-cover">
+          </div>
+
+          <div data-aos="fade-left">
+            <h2 class="text-4xl font-extrabold text-indigo-900 mb-4">About Redes Creation</h2>
+            <p class="text-slate-600 mb-4">At Redes Creation, we guide learners in Bengaluru and beyond to discover better study habits, improved focus, and emotional intelligence. Our founder, an education coach with 9+ years of experience, combines cognitive strategies with real-world mentoring.</p>
+
+            <div class="grid sm:grid-cols-2 gap-4 mt-6">
+              <div class="p-4 border rounded-lg">
+                <div class="text-3xl font-bold text-indigo-600">9+</div>
+                <div class="text-sm text-slate-600 mt-1">Years of Experience</div>
+              </div>
+              <div class="p-4 border rounded-lg">
+                <div class="text-3xl font-bold text-indigo-600">1200+</div>
+                <div class="text-sm text-slate-600 mt-1">Students Mentored</div>
+              </div>
+            </div>
+
+            <div class="mt-6">
+              <a href="#courses" class="inline-block px-6 py-3 bg-indigo-600 text-white rounded-full">Explore Courses</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Courses -->
+    <section id="courses" class="py-20 bg-slate-50">
+      <div class="max-w-6x1 mx-auto px-6">
+        <div class="flex items-center justify-between mb-8">
+          <div>
+            <h2 class="text-3xl font-extrabold text-indigo-900">Our Courses</h2>
+            <p class="text-slate-600">Tailored tracks for exam readiness, communication, leadership, and study skills.</p>
+          </div>
+          <div>
+            <a href="#contact" class="text-indigo-600">See All Courses →</a>
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+          <!-- Course Card -->
+          <article class="p-6 bg-white rounded-xl shadow-sm hover:shadow-lg transition" data-aos="fade-up">
+            <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=900&auto=format&fit=crop" alt="Course - exam readiness" class="w-full h-40 object-cover rounded-md mb-4">
+            <h3 class="font-semibold text-indigo-900">Exam Readiness Bootcamp</h3>
+            <p class="text-slate-600 mt-2">High-impact revision, time management, and mock tests.</p>
+            <div class="mt-4 flex items-center justify-between">
+              <div class="text-lg font-bold text-indigo-700">₹6,499</div>
+              <a href="#contact" class="text-indigo-600">Enroll →</a>
+            </div>
+          </article>
+
+          <article class="p-6 bg-white rounded-xl shadow-sm hover:shadow-lg transition" data-aos="fade-up" data-aos-delay="80">
+            <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=900&auto=format&fit=crop" alt="Course - communication" class="w-full h-40 object-cover rounded-md mb-4">
+            <h3 class="font-semibold text-indigo-900">Communication & Confidence</h3>
+            <p class="text-slate-600 mt-2">Public speaking, presentations and interview skills.</p>
+            <div class="mt-4 flex items-center justify-between">
+              <div class="text-lg font-bold text-indigo-700">₹4,999</div>
+              <a href="#contact" class="text-indigo-600">Enroll →</a>
+            </div>
+          </article>
+
+          <article class="p-6 bg-white rounded-xl shadow-sm hover:shadow-lg transition" data-aos="fade-up" data-aos-delay="160">
+            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=900&auto=format&fit=crop" alt="Course - personalized coaching" class="w-full h-40 object-cover rounded-md mb-4">
+            <h3 class="font-semibold text-indigo-900">Personal Mentorship</h3>
+            <p class="text-slate-600 mt-2">One-on-one coaching and personalized growth plans.</p>
+            <div class="mt-4 flex items-center justify-between">
+              <div class="text-lg font-bold text-indigo-700">₹12,999</div>
+              <a href="#contact" class="text-indigo-600">Enroll →</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfolio (Filterable) -->
+    <section id="portfolio" class="py-20 bg-white">
+      <div class="max-w-6x1 mx-auto px-6">
+        <h2 class="text-3xl font-extrabold text-indigo-900 mb-4">Case Studies & Gallery</h2>
+        <p class="text-slate-600 mb-6">A selection of student success stories and project snapshots.</p>
+
+        <div class="flex gap-3 mb-6">
+          <button class="filter-btn px-4 py-2 rounded-full bg-indigo-50 text-indigo-700" data-filter="all">All</button>
+          <button class="filter-btn px-4 py-2 rounded-full bg-white border" data-filter="workshop">Workshops</button>
+          <button class="filter-btn px-4 py-2 rounded-full bg-white border" data-filter="online">Online</button>
+          <button class="filter-btn px-4 py-2 rounded-full bg-white border" data-filter="mentoring">Mentoring</button>
+        </div>
+
+        <div id="portfolioGrid" class="grid md:grid-cols-3 gap-6">
+          <!-- items -->
+          <figure class="portfolio-item rounded-lg overflow-hidden" data-category="workshop">
+            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1200&auto=format&fit=crop" alt="Workshop snapshot" class="w-full h-56 object-cover">
+            <figcaption class="p-4 bg-white">
+              <h3 class="font-semibold">Campus Workshop — Confidence Lab</h3>
+              <p class="text-sm text-slate-600 mt-2">Interactive session with 60+ participants.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="portfolio-item rounded-lg overflow-hidden" data-category="online">
+            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1200&auto=format&fit=crop" alt="Online course event" class="w-full h-56 object-cover">
+            <figcaption class="p-4 bg-white">
+              <h3 class="font-semibold">Online Bootcamp — Study Smarter</h3>
+              <p class="text-sm text-slate-600 mt-2">A 4-week online cohort program.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="portfolio-item rounded-lg overflow-hidden" data-category="mentoring">
+            <img src="https://images.unsplash.com/photo-1554415707-6e8cfc93fe23?q=80&w=1200&auto=format&fit=crop" alt="Mentor with student" class="w-full h-56 object-cover">
+            <figcaption class="p-4 bg-white">
+              <h3 class="font-semibold">1:1 Mentoring Success Story</h3>
+              <p class="text-sm text-slate-600 mt-2">Personalised plan helped student increase grades by 25%.</p>
+            </figcaption>
+          </figure>
+
+          <!-- duplicates to show grid -->
+          <figure class="portfolio-item rounded-lg overflow-hidden" data-category="workshop">
+            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1200&auto=format&fit=crop" alt="Workshop image" class="w-full h-56 object-cover">
+            <figcaption class="p-4 bg-white">
+              <h3 class="font-semibold">Weekend Seminar</h3>
+              <p class="text-sm text-slate-600 mt-2">Leadership & mindset.</p>
+            </figcaption>
+          </figure>
+          <figure class="portfolio-item rounded-lg overflow-hidden" data-category="online">
+            <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?q=80&w=1200&auto=format&fit=crop" alt="webinar" class="w-full h-56 object-cover">
+            <figcaption class="p-4 bg-white">
+              <h3 class="font-semibold">Webinar — Exam Tactics</h3>
+              <p class="text-sm text-slate-600 mt-2">Short tips & strategies.</p>
+            </figcaption>
+          </figure>
+          <figure class="portfolio-item rounded-lg overflow-hidden" data-category="mentoring">
+            <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=1200&auto=format&fit=crop" alt="mentor-mentee" class="w-full h-56 object-cover">
+            <figcaption class="p-4 bg-white">
+              <h3 class="font-semibold">Career Mentoring</h3>
+              <p class="text-sm text-slate-600 mt-2">Guidance for university & career choices.</p>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="py-20 bg-slate-50">
+      <div class="max-w-6x1 mx-auto px-6">
+        <div class="text-center mb-8">
+          <h2 class="text-3xl font-extrabold text-indigo-900">What Our Students Say</h2>
+          <p class="text-slate-600">Real feedback from learners who changed their trajectory.</p>
+        </div>
+
+        <div class="relative">
+          <div id="testimonialTrack" class="flex gap-6 overflow-hidden">
+            <!-- card 1 -->
+            <div class="testimonial-card p-6 min-w-full md:min-w-[48%] rounded-xl border">
+              <div class="flex gap-4 items-center">
+                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=96&auto=format&fit=crop&crop=faces" alt="student photo" class="w-14 h-14 rounded-full">
+                <div>
+                  <div class="font-semibold">Ananya R.</div>
+                  <div class="text-sm text-slate-500">Student — Bengaluru</div>
+                </div>
+              </div>
+              <p class="mt-4 text-slate-700">"The coaching helped me focus my studies and beat exam anxiety. My scores improved and I feel confident."</p>
+            </div>
+
+            <!-- card 2 -->
+            <div class="testimonial-card p-6 min-w-full md:min-w-[48%] rounded-xl border">
+              <div class="flex gap-4 items-center">
+                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=96&auto=format&fit=crop&crop=faces" alt="student photo" class="w-14 h-14 rounded-full">
+                <div>
+                  <div class="font-semibold">Rohit S.</div>
+                  <div class="text-sm text-slate-500">Parent</div>
+                </div>
+              </div>
+              <p class="mt-4 text-slate-700">"Structured mentoring resulted in visible progress. Highly recommended."</p>
+            </div>
+
+            <!-- card 3 -->
+            <div class="testimonial-card p-6 min-w-full md:min-w-[48%] rounded-xl border">
+              <div class="flex gap-4 items-center">
+                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=96&auto=format&fit=crop&crop=faces" alt="student photo" class="w-14 h-14 rounded-full">
+                <div>
+                  <div class="font-semibold">Priya K.</div>
+                  <div class="text-sm text-slate-500">Professional Upskill</div>
+                </div>
+              </div>
+              <p class="mt-4 text-slate-700">"The communication course improved my presentation skills and confidence in interviews."</p>
+            </div>
+          </div>
+
+          <!-- controls -->
+          <div class="mt-4 flex items-center justify-between">
+            <div class="flex gap-2">
+              <button id="prevTest" class="p-2 rounded-full bg-white border shadow-sm" aria-label="Previous testimonial">◀</button>
+              <button id="nextTest" class="p-2 rounded-full bg-white border shadow-sm" aria-label="Next testimonial">▶</button>
+            </div>
+            <div class="text-sm text-slate-500">Student ratings: ★★★★☆ (4.7/5)</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing -->
+    <section id="pricing" class="py-20 bg-white">
+      <div class="max-w-6x1 mx-auto px-6">
+        <div class="text-center mb-8">
+          <h2 class="text-3xl font-extrabold text-indigo-900">Pricing Plans</h2>
+          <p class="text-slate-600">Choose a plan that fits your goals — we offer flexible monthly and one-time packages.</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="p-6 rounded-xl border text-center">
+            <div class="text-sm text-slate-500">Starter</div>
+            <div class="text-4xl font-extrabold text-indigo-700 mt-2">₹2,499</div>
+            <p class="text-slate-600 mt-2">Access to prerecorded modules & weekly Q&A.</p>
+            <ul class="text-left mt-4 space-y-2 text-slate-600">
+              <li>• 6 Modules</li>
+              <li>• Community Access</li>
+              <li>• Monthly Q&A</li>
+            </ul>
+            <a href="#contact" class="mt-6 inline-block bg-indigo-50 text-indigo-700 px-5 py-2 rounded-full">Sign Up</a>
+          </div>
+
+          <div class="p-6 rounded-xl text-center popular">
+            <div class="text-sm text-slate-500">Most Popular</div>
+            <div class="text-4xl font-extrabold text-indigo-700 mt-2">₹6,499</div>
+            <p class="text-slate-600 mt-2">Bootcamp with live sessions, personal feedback.</p>
+            <ul class="text-left mt-4 space-y-2 text-slate-600">
+              <li>• Live Workshops</li>
+              <li>• Personal Feedback</li>
+              <li>• Assessments & Certificates</li>
+            </ul>
+            <a href="#contact" class="mt-6 inline-block bg-indigo-600 text-white px-5 py-2 rounded-full">Get this Plan</a>
+          </div>
+
+          <div class="p-6 rounded-xl border text-center">
+            <div class="text-sm text-slate-500">Premium</div>
+            <div class="text-4xl font-extrabold text-indigo-700 mt-2">₹12,999</div>
+            <p class="text-slate-600 mt-2">1:1 Mentoring, tailored roadmap & ongoing support.</p>
+            <ul class="text-left mt-4 space-y-2 text-slate-600">
+              <li>• Daily Mentorship</li>
+              <li>• Tailored Plan</li>
+              <li>• Priority Access</li>
+            </ul>
+            <a href="#contact" class="mt-6 inline-block bg-indigo-50 text-indigo-700 px-5 py-2 rounded-full">Book Call</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Blog -->
+    <section id="blog" class="py-20 bg-slate-50">
+      <div class="max-w-6x1 mx-auto px-6">
+        <div class="flex items-center justify-between mb-6">
+          <h2 class="text-3xl font-extrabold text-indigo-900">From Our Blog</h2>
+          <a href="#blog-list" class="text-indigo-600">View All</a>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+          <article class="bg-white rounded-xl overflow-hidden shadow-sm" data-aos="fade-up">
+            <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=1200&auto=format&fit=crop" alt="blog - study tips" class="w-full h-44 object-cover">
+            <div class="p-4">
+              <h3 class="font-bold text-indigo-900">5 Study Habits That Actually Work</h3>
+              <p class="text-slate-600 mt-2 text-sm">Small habits that compound into lasting academic success.</p>
+              <div class="mt-3 text-sm text-indigo-600">Read more →</div>
+            </div>
+          </article>
+
+          <article class="bg-white rounded-xl overflow-hidden shadow-sm" data-aos="fade-up" data-aos-delay="80">
+            <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?q=80&w=1200&auto=format&fit=crop" alt="blog - confidence" class="w-full h-44 object-cover">
+            <div class="p-4">
+              <h3 class="font-bold text-indigo-900">How to Build Presentation Confidence</h3>
+              <p class="text-slate-600 mt-2 text-sm">Practical tips for stage presence and clarity.</p>
+              <div class="mt-3 text-sm text-indigo-600">Read more →</div>
+            </div>
+          </article>
+
+          <article class="bg-white rounded-xl overflow-hidden shadow-sm" data-aos="fade-up" data-aos-delay="160">
+            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1200&auto=format&fit=crop" alt="blog - time mgmt" class="w-full h-44 object-cover">
+            <div class="p-4">
+              <h3 class="font-bold text-indigo-900">Time Management for Busy Students</h3>
+              <p class="text-slate-600 mt-2 text-sm">Built for students juggling studies and extra-curriculars.</p>
+              <div class="mt-3 text-sm text-indigo-600">Read more →</div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Accordion -->
+    <section id="faq" class="py-20 bg-white">
+      <div class="max-w-6x1 mx-auto px-6">
+        <h2 class="text-3xl font-extrabold text-indigo-900 mb-4">Frequently Asked Questions</h2>
+        <p class="text-slate-600 mb-6">Answers to common questions about our coaching and programs.</p>
+
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="space-y-4">
+            <div class="faq-item border rounded-lg p-4" data-aos="fade-right">
+              <button class="faq-toggle w-full text-left flex justify-between items-center" aria-expanded="false">
+                <span class="font-semibold">What is the duration of the bootcamp?</span>
+                <svg class="h-5 w-5 transform transition" viewBox="0 0 20 20" fill="none" stroke="currentColor"><path d="M6 8l4 4 4-4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+              <div class="faq-panel mt-3 text-slate-600 hidden">The bootcamp runs for 4 weeks with weekly live sessions and recorded content to revisit anytime.</div>
+            </div>
+
+            <div class="faq-item border rounded-lg p-4" data-aos="fade-right" data-aos-delay="80">
+              <button class="faq-toggle w-full text-left flex justify-between items-center" aria-expanded="false">
+                <span class="font-semibold">Do you offer 1:1 mentoring?</span>
+                <svg class="h-5 w-5 transform transition" viewBox="0 0 20 20" fill="none" stroke="currentColor"><path d="M6 8l4 4 4-4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+              <div class="faq-panel mt-3 text-slate-600 hidden">Yes — our Premium plan includes dedicated 1:1 mentoring tailored to your goals.</div>
+            </div>
+          </div>
+
+          <div class="space-y-4">
+            <div class="faq-item border rounded-lg p-4" data-aos="fade-left">
+              <button class="faq-toggle w-full text-left flex justify-between items-center" aria-expanded="false">
+                <span class="font-semibold">Are there scholarships available?</span>
+                <svg class="h-5 w-5 transform transition" viewBox="0 0 20 20" fill="none" stroke="currentColor"><path d="M6 8l4 4 4-4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+              <div class="faq-panel mt-3 text-slate-600 hidden">We periodically offer discounts and scholarship spots — contact us to check current availability.</div>
+            </div>
+
+            <div class="faq-item border rounded-lg p-4" data-aos="fade-left" data-aos-delay="80">
+              <button class="faq-toggle w-full text-left flex justify-between items-center" aria-expanded="false">
+                <span class="font-semibold">Can I pay in installments?</span>
+                <svg class="h-5 w-5 transform transition" viewBox="0 0 20 20" fill="none" stroke="currentColor"><path d="M6 8l4 4 4-4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+              <div class="faq-panel mt-3 text-slate-600 hidden">Yes — we offer EMI options for the Premium plan. Contact us for details.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-20 bg-indigo-50">
+      <div class="max-w-6x1 mx-auto px-6">
+        <div class="grid lg:grid-cols-2 gap-8 items-start">
+          <div>
+            <h2 class="text-3xl font-extrabold text-indigo-900">Get in Touch</h2>
+            <p class="text-slate-700 mt-2">Book a free training session or ask questions — we’re here to help.</p>
+
+            <div class="mt-6 space-y-4">
+              <div class="flex items-center gap-4">
+                <svg class="h-6 w-6 text-indigo-600" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M2 7v6a10 10 0 0010 10h6" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/></svg>
+                <div>
+                  <div class="text-sm text-slate-500">Phone</div>
+                  <a href="tel:+919676659153" class="font-medium text-indigo-800">+91 96766 59153</a>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-4">
+                <svg class="h-6 w-6 text-indigo-600" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <div>
+                  <div class="text-sm text-slate-500">Email</div>
+                  <a href="mailto:info@redescreation.in" class="font-medium text-indigo-800">info@redescreation.in</a>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-4">
+                <svg class="h-6 w-6 text-indigo-600" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2C8 2 4 6 4 10c0 7 8 12 8 12s8-5 8-12c0-4-4-8-8-8z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <div>
+                  <div class="text-sm text-slate-500">Location</div>
+                  <div class="font-medium text-indigo-800">Bengaluru, India</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-8">
+              <iframe title="Redes Creation - Bengaluru" src="https://www.google.com/maps?q=Bengaluru&output=embed" class="w-full h-56 rounded-lg border-0" loading="lazy" aria-hidden="false"></iframe>
+            </div>
+          </div>
+
+          <!-- contact form -->
+          <div>
+            <form id="contactForm" class="bg-white p-6 rounded-xl shadow-sm" aria-label="Contact form">
+              <div class="grid grid-cols-1 gap-4">
+                <label class="block">
+                  <span class="text-sm text-slate-600">Name</span>
+                  <input required name="name" class="mt-1 block w-full rounded-md border px-3 py-2" placeholder="Your name" aria-label="Your name">
+                </label>
+
+                <label class="block">
+                  <span class="text-sm text-slate-600">Email</span>
+                  <input required type="email" name="email" class="mt-1 block w-full rounded-md border px-3 py-2" placeholder="you@example.com" aria-label="Your email">
+                </label>
+
+                <label class="block">
+                  <span class="text-sm text-slate-600">Phone</span>
+                  <input name="phone" class="mt-1 block w-full rounded-md border px-3 py-2" placeholder="+91 9XXXXXXXXX" aria-label="Your phone">
+                </label>
+
+                <label class="block">
+                  <span class="text-sm text-slate-600">Message</span>
+                  <textarea name="message" rows="4" class="mt-1 block w-full rounded-md border px-3 py-2" placeholder="Tell us about your needs" aria-label="Your message"></textarea>
+                </label>
+
+                <div class="flex items-center gap-4">
+                  <button type="submit" class="bg-indigo-600 text-white px-5 py-2 rounded-full shadow">Send Message</button>
+                  <div id="formMessage" class="text-sm text-green-600 hidden">Message sent — we'll contact you soon.</div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-indigo-900 text-white py-12">
+    <div class="max-w-6x1 mx-auto px-6 grid md:grid-cols-4 gap-6">
+      <div>
+        <div class="font-bold text-xl">Redes Creation</div>
+        <div class="text-slate-200 mt-2 text-sm">Education Coaching — Bengaluru</div>
+        <div class="mt-4 text-sm">Phone: <a href="tel:+919676659153" class="underline">+91 96766 59153</a></div>
+        <div class="mt-1 text-sm">Email: <a href="mailto:info@redescreation.in" class="underline">info@redescreation.in</a></div>
+      </div>
+
+      <div>
+        <div class="font-semibold">Programs</div>
+        <ul class="mt-3 space-y-2 text-sm">
+          <li><a href="courses.html" class="text-indigo-200 hover:text-white">Bootcamp</a></li>
+          <li><a href="courses.html" class="text-indigo-200 hover:text-white">Mentoring</a></li>
+          <li><a href="courses.html" class="text-indigo-200 hover:text-white">Communication</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="font-semibold">Resources</div>
+        <ul class="mt-3 space-y-2 text-sm">
+          <li><a href="blog.html" class="text-indigo-200 hover:text-white">Blog</a></li>
+          <li><a href="#faq" class="text-indigo-200 hover:text-white">FAQ</a></li>
+          <li><a href="/privacy-policy" class="text-indigo-200 hover:text-white">Privacy Policy</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="font-semibold">Follow</div>
+        <div class="mt-3 flex gap-3">
+          <a href="#" class="p-2 bg-indigo-800 rounded"><svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12a10 10 0 10-11.5 9.9v-7h-2.5v-2.9h2.5V9.1c0-2.4 1.4-3.7 3.5-3.7 1 0 2 .08 2 .08v2.2h-1.1c-1.1 0-1.5.72-1.5 1.5v1.8h2.5l-.4 2.9h-2.1V22A10 10 0 0022 12z"/></svg></a>
+          <a href="#" class="p-2 bg-indigo-800 rounded"><svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm5 6.2A4.8 4.8 0 1016.8 13 4.8 4.8 0 0012 8.2zM18 7.2a1.2 1.2 0 11-1.2-1.2A1.2 1.2 0 0118 7.2z"/></svg></a>
+          <a href="#" class="p-2 bg-indigo-800 rounded"><svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v6h-4v-6a2 2 0 00-4 0v6h-4V8h4v2a4 4 0 013.5-2zM2 8h4v12H2z"/></svg></a>
+        </div>
+        <div class="mt-6 text-sm text-indigo-300">© <span id="year"></span> Redes Creation. All rights reserved.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- AOS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <script>
+    // Initialize AOS
+    AOS.init({ once: true, duration: 700 });
+
+    // Mobile menu logic
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const closeMenu = document.getElementById('closeMenu');
+    const mobileOverlay = document.getElementById('mobileOverlay');
+
+    function openMobile(){
+      mobileMenu.style.transform = 'translateX(0)';
+      mobileMenu.setAttribute('aria-hidden', 'false');
+      hamburger.setAttribute('aria-expanded', 'true');
+    }
+    function closeMobile(){
+      mobileMenu.style.transform = 'translateX(100%)';
+      mobileMenu.setAttribute('aria-hidden', 'true');
+      hamburger.setAttribute('aria-expanded', 'false');
+    }
+
+    hamburger?.addEventListener('click', openMobile);
+    closeMenu?.addEventListener('click', closeMobile);
+    mobileOverlay?.addEventListener('click', closeMobile);
+
+    // Portfolio filter
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const items = document.querySelectorAll('.portfolio-item');
+
+    filterBtns.forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        filterBtns.forEach(b=>b.classList.remove('bg-indigo-50','text-indigo-700'));
+        btn.classList.add('bg-indigo-50','text-indigo-700');
+        const filter = btn.dataset.filter;
+        items.forEach(i=>{
+          if(filter === 'all' || i.dataset.category === filter) {
+            i.style.display = 'block';
+            i.classList.remove('opacity-0');
+          } else {
+            i.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // Simple testimonial slider
+    (function(){
+      const track = document.getElementById('testimonialTrack');
+      const next = document.getElementById('nextTest');
+      const prev = document.getElementById('prevTest');
+      let index = 0;
+
+      function update(){
+        const cardWidth = track.children[0].getBoundingClientRect().width + 24; // gap ~24
+        track.style.transform = `translateX(-${index * cardWidth}px)`;
+        track.style.transition = 'transform 450ms cubic-bezier(.2,.9,.2,1)';
+      }
+
+      next?.addEventListener('click', ()=>{
+        index = Math.min(index + 1, Math.max(0, track.children.length - 1));
+        update();
+      });
+      prev?.addEventListener('click', ()=>{
+        index = Math.max(0, index - 1);
+        update();
+      });
+
+      // auto-advance
+      setInterval(()=> {
+        index = (index + 1) % track.children.length;
+        update();
+      }, 5000);
+      window.addEventListener('resize', update);
+    })();
+
+    // FAQ accordion
+    document.querySelectorAll('.faq-toggle').forEach(btn=>{
+      btn.addEventListener('click', (e)=>{
+        const wrapper = e.currentTarget.closest('.faq-item');
+        const panel = wrapper.querySelector('.faq-panel');
+        const expanded = e.currentTarget.getAttribute('aria-expanded') === 'true';
+        // close others
+        document.querySelectorAll('.faq-item .faq-panel').forEach(p => { if(p !== panel) p.classList.add('hidden'); });
+        document.querySelectorAll('.faq-toggle').forEach(t => t.setAttribute('aria-expanded','false'));
+        if(!expanded){
+          panel.classList.remove('hidden');
+          e.currentTarget.setAttribute('aria-expanded','true');
+        } else {
+          panel.classList.add('hidden');
+          e.currentTarget.setAttribute('aria-expanded','false');
+        }
+      });
+    });
+
+    // Contact form (dummy local submit)
+    document.getElementById('contactForm')?.addEventListener('submit', function(e){
+      e.preventDefault();
+      // basic UI success
+      const msg = document.getElementById('formMessage');
+      msg.classList.remove('hidden');
+      setTimeout(()=> msg.classList.add('hidden'), 5000);
+      e.target.reset();
+    });
+
+    // set year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Accessibility: skip to content on logo click for keyboard users (optional)
+    document.querySelector('a[aria-label="Redes Creation home"]').addEventListener('click',(e)=>{
+      e.preventDefault();
+      const main = document.querySelector('main');
+      main.setAttribute('tabindex','-1');
+      main.focus();
+    });
+
+  </script>
+</body>
+</html>

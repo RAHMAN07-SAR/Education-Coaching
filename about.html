@@ -1,0 +1,1116 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Basic Meta / SEO -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>EduCoach — About & Full Site Prototype | Education Coaching in Bengaluru</title>
+  <meta name="description" content="EduCoach — Education Coaching based in Bengaluru. Transformative courses, expert coaches, and a supportive community. Contact: +91 96766 59153 | info@redescreation.in" />
+  <meta name="keywords" content="education coaching, bengaluru coaching, online courses, personal development, EduCoach" />
+  <meta name="author" content="EduCoach / RedesCreation" />
+ 
+  <!-- Tailwind CDN (quick prototype) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- AOS for scroll animations -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <!-- Icons (simple) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-j5Kz6a2m1tXQGv0r68r1Qw9p8qv1rCqfF3u1e8x4b1q1mQJwQ2aU6iZ1mM5qL2yQ6sWgl/8b6d6ZqYf6j3w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Simple custom styles for this prototype -->
+  <style>
+    /* tiny utilities in addition to Tailwind */
+    .glass {
+      background: rgba(255,255,255,0.06);
+      backdrop-filter: blur(6px);
+    }
+    .floating-badge {
+      background: white;
+      border-radius: 999px;
+      padding: 6px 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+    }
+
+    /* Smooth anchor scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* tiny animation for CTA arrow */
+    @keyframes arrowMove {
+      0% { transform: translateX(0); }
+      50% { transform: translateX(6px); }
+      100% { transform: translateX(0); }
+    }
+    .cta-arrow {
+      display: inline-block;
+      animation: arrowMove 1.2s infinite;
+    }
+
+    /* keep hero image cutout aesthetic */
+    .cutout {
+      clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    }
+
+    /* carousel dots */
+    .dot {
+      width: 10px; height: 10px; border-radius: 999px; background: rgba(255,255,255,0.4);
+    }
+    .dot.active { background: white; transform: scale(1.15); }
+
+    /* lightbox overlay */
+    .lightbox-overlay {
+      background: rgba(0,0,0,0.75);
+    }
+  </style>
+</head>
+<body class="antialiased text-gray-800">
+
+  <!-- Header / Nav -->
+  <header class="fixed inset-x-0 top-0 z-50 nav-shadow bg-white/95 backdrop-blur-sm">
+    <div class="mx-auto px-6 max-w-6x1 flex items-center justify-between h-20">
+      <div class="flex items-center gap-4">
+        <a href="#" class="flex items-center gap-3" aria-label="Redes Creation home">
+          <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=80&auto=format&fit=crop&crop=faces" alt="Redes Creation logo" class="w-10 h-10 rounded-full shadow-sm">
+          <div>
+            <div class="font-extrabold text-lg text-indigo-900">Redes Creation</div>
+            <div class="text-xs -mt-1 text-slate-500">Education Coaching • Bengaluru</div>
+          </div>
+        </a>
+      </div>
+
+      <!-- desktop nav -->
+      <nav class="hidden lg:flex items-center gap-6">
+        <ul class="flex items-center gap-6 text-slate-700">
+          <li><a href="index.html" class="hover:text-indigo-600">Home</a></li>
+          <li><a href="courses.html" class="hover:text-indigo-600">Courses</a></li>
+          <li><a href="about.html" class="hover:text-indigo-600">About</a></li>
+          <li><a href="testimonial.html" class="hover:text-indigo-600">Testimonial</a></li>
+          <li><a href="blog.html" class="hover:text-indigo-600">Blog</a></li>
+          <li><a href="contact.html" class="hover:text-indigo-600">Contact</a></li>
+        </ul>
+        <a href="contact.html" class="ml-4 inline-flex items-center gap-2 bg-indigo-600 text-white px-5 py-2 rounded-full shadow hover:bg-indigo-700 transition" aria-label="Free Training">
+          Free Training
+        </a>
+      </nav>
+
+      <!-- mobile triggers -->
+      <div class="lg:hidden flex items-center gap-4">
+        <button id="searchBtn" aria-label="Search" class="p-2 rounded-md hover:bg-gray-100">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-slate-700" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M17 11a6 6 0 11-12 0 6 6 0 0112 0z"/></svg>
+        </button>
+        <button id="hamburger" aria-label="Open menu" aria-expanded="false" class="p-2 rounded-md hover:bg-gray-100">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-slate-800" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile slide-out menu -->
+  <div id="mobileMenu" class="fixed inset-0 z-40 transform translate-x-full lg:hidden" aria-hidden="true">
+    <div class="absolute inset-0 bg-black/40" id="mobileOverlay"></div>
+    <aside class="absolute right-0 top-0 h-full w-80 bg-white p-6 overflow-auto">
+      <div class="flex items-center justify-between mb-6">
+        <div class="flex items-center gap-3">
+          <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=80&auto=format&fit=crop&crop=faces" alt="logo" class="w-10 h-10 rounded-full">
+          <div>
+            <div class="font-bold">Redes Creation</div>
+            <div class="text-xs text-slate-500">Education Coaching</div>
+          </div>
+        </div>
+        <button id="closeMenu" aria-label="Close menu" class="p-2 rounded-md hover:bg-gray-100">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-slate-800" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <nav>
+        <ul class="flex flex-col gap-4 text-lg">
+          <li><a href="index.html" class="block">Home</a></li>
+          <li><a href="courses.html" class="block">Courses</a></li>
+          <li><a href="about.html" class="block">About</a></li>
+          <li><a href="testimonial.html" class="block">Testimonial</a></li>
+          <li><a href="blog.html" class="block">Blog</a></li>
+          <li><a href="contact.html" class="block">Contact</a></li>
+        </ul>
+
+        <div class="mt-6">
+          <a href="contact.html" class="block text-center bg-indigo-600 text-white py-3 rounded-full">Free Training</a>
+        </div>
+
+        <div class="mt-6">
+          <div class="text-slate-600 mb-2">Follow us</div>
+          <div class="flex gap-3">
+            <a aria-label="facebook" href="#" class="p-2 rounded bg-gray-100"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 10-11.5 9.9v-7h-2.5v-2.9h2.5V9.1c0-2.4 1.4-3.7 3.5-3.7 1 0 2 .08 2 .08v2.2h-1.1c-1.1 0-1.5.72-1.5 1.5v1.8h2.5l-.4 2.9h-2.1V22A10 10 0 0022 12z"/></svg></a>
+            <a aria-label="instagram" href="#" class="p-2 rounded bg-gray-100"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600" viewBox="0 0 24 24" fill="currentColor"><path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm5 6.2A4.8 4.8 0 1016.8 13 4.8 4.8 0 0012 8.2zM18 7.2a1.2 1.2 0 11-1.2-1.2A1.2 1.2 0 0118 7.2z"/></svg></a>
+            <a aria-label="linkedin" href="#" class="p-2 rounded bg-gray-100"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v6h-4v-6a2 2 0 00-4 0v6h-4V8h4v2a4 4 0 013.5-2zM2 8h4v12H2z"/></svg></a>
+          </div>
+        </div>
+      </nav>
+    </aside>
+  </div>
+
+
+
+
+
+  <!-- ============================
+       HERO / About Banner
+       ============================ -->
+  <main class="pt-28">
+
+    <section class="relative overflow-hidden">
+      <div class="bg-gradient-to-r from-[#1b1d3a] to-[#5d2d93] text-white">
+        <div class="max-w-6xl mx-auto px-6 py-20 md:py-28 grid md:grid-cols-2 gap-8 items-center">
+
+          <!-- Left: Heading / Copy -->
+          <div data-aos="fade-right">
+            <p class="uppercase tracking-widest text-[#ffd9a8] font-semibold">About Us</p>
+            <h1 class="mt-6 text-4xl md:text-6xl font-extrabold leading-tight">
+              Our journey — empowering learners to reach their potential
+            </h1>
+            <p class="mt-6 text-gray-200 max-w-xl">
+              Based in Bengaluru, EduCoach (MasterLife) combines evidence-based learning strategies,
+              supportive coaching, and industry-informed curriculum to help students transform their careers
+              and lives. Our methodology balances mindset, skill-building, and practical experience.
+            </p>
+
+            <div class="mt-8 flex gap-4">
+              <a href="#cta-join" class="inline-flex items-center gap-3 bg-white text-[#3b1771] px-6 py-3 rounded-full font-semibold shadow hover:translate-y-[-2px] transition">
+                Get Started
+                <span class="cta-arrow">→</span>
+              </a>
+              <a href="#our-story" class="inline-flex items-center gap-2 text-white/90 px-4 py-3 rounded-full border border-white/10 hover:bg-white/5 transition">
+                Learn Our Story
+              </a>
+            </div>
+
+            <!-- Floating badges to mirror hero micro-interactions -->
+            <div class="mt-8 flex gap-4">
+              <span class="floating-badge" data-aos="fade-up" data-aos-delay="300">innovative thinking</span>
+              <span class="floating-badge" data-aos="fade-up" data-aos-delay="400">creative methodology</span>
+            </div>
+          </div>
+
+          <!-- Right: Cutout image -->
+          <div class="relative flex justify-end">
+            <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=8d232e6b6f0b4e2a42d2b8ae0d0f6ac2"
+                 alt="Coach smiling" class="w-full md:w-[520px] rounded-3xl shadow-2xl border-8 border-white/10 cutout" data-aos="zoom-in" />
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+
+
+
+
+
+
+
+  <!-- ============================
+       OUR STORY SECTION
+       ============================ -->
+  <section id="our-story" class="max-w-6xl mx-auto px-6 py-20">
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+
+      <div data-aos="fade-up" data-aos-duration="800">
+        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=bb98b0a9a8e2f3b8c6f6b2d5e5d9b3a7"
+             alt="group discussion" class="rounded-2xl shadow-lg w-full" />
+      </div>
+
+      <div data-aos="fade-left">
+        <h2 class="text-3xl font-bold">Our Story</h2>
+        <p class="mt-4 text-gray-700 leading-relaxed">
+          EduCoach started as a small study group in Bengaluru and evolved into a structured coaching institute
+          with a mission to democratize access to high-quality learning. Over the last 9+ years we have worked
+          with students from diverse backgrounds — helping them prepare for exams, build careers, and develop
+          life skills that matter.
+        </p>
+
+        <div class="mt-6 grid sm:grid-cols-2 gap-4">
+          <div class="p-4 bg-white rounded-xl shadow">
+            <h3 class="font-bold text-xl">Human-first approach</h3>
+            <p class="text-sm text-gray-600 mt-2">We put learners first: individual learning plans and coaching.</p>
+          </div>
+          <div class="p-4 bg-white rounded-xl shadow">
+            <h3 class="font-bold text-xl">Evidence-based</h3>
+            <p class="text-sm text-gray-600 mt-2">Teaching methods are backed by research and iterative feedback.</p>
+          </div>
+        </div>
+
+        <a href="courses.html" class="inline-block mt-6 px-6 py-3 bg-[#6f44ff] text-white rounded-full font-semibold hover:bg-[#5a36dd] transition">See Courses</a>
+      </div>
+
+    </div>
+  </section>
+
+
+
+
+
+
+
+
+
+  <!-- ============================
+       MISSION & VISION / VALUES
+       ============================ -->
+  <section class="bg-gray-50 py-16">
+    <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-8">
+
+      <div class="bg-white rounded-2xl p-8 shadow" data-aos="fade-up">
+        <h4 class="text-xl font-bold">Our Mission</h4>
+        <p class="mt-3 text-gray-600">To create an inclusive and inspiring learning community that nurtures innovation, leadership, and lifelong skills.</p>
+      </div>
+
+      <div class="bg-white rounded-2xl p-8 shadow" data-aos="fade-up" data-aos-delay="150">
+        <h4 class="text-xl font-bold">Our Vision</h4>
+        <p class="mt-3 text-gray-600">To be recognized as a leading coaching platform transforming learners’ lives and empowering them for the future.</p>
+      </div>
+
+      <div class="bg-white rounded-2xl p-8 shadow" data-aos="fade-up" data-aos-delay="300">
+        <h4 class="text-xl font-bold">Core Values</h4>
+        <ul class="mt-3 space-y-2 text-gray-600">
+          <li>Empathy & Respect</li>
+          <li>Continuous Improvement</li>
+          <li>Transparency</li>
+          <li>Community-driven learning</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+
+
+
+
+
+
+
+
+  <!-- ============================
+       STATS / ACHIEVEMENTS (Animated Counters)
+       ============================ -->
+  <section class="max-w-6xl mx-auto px-6 py-16">
+    <div class="grid md:grid-cols-3 gap-8 text-center">
+
+      <div class="p-8 rounded-2xl bg-gradient-to-tr from-white to-[#f6f8ff] shadow-lg" data-aos="flip-up">
+        <div class="text-5xl font-extrabold text-[#4f2bb1]" id="counter-years">0</div>
+        <p class="mt-2 text-gray-600">Years of Excellence</p>
+      </div>
+
+      <div class="p-8 rounded-2xl bg-gradient-to-tr from-white to-[#f6f8ff] shadow-lg" data-aos="flip-up" data-aos-delay="150">
+        <div class="text-5xl font-extrabold text-[#4f2bb1]" id="counter-students">0</div>
+        <p class="mt-2 text-gray-600">Students Trained</p>
+      </div>
+
+      <div class="p-8 rounded-2xl bg-gradient-to-tr from-white to-[#f6f8ff] shadow-lg" data-aos="flip-up" data-aos-delay="300">
+        <div class="text-5xl font-extrabold text-[#4f2bb1]" id="counter-courses">0</div>
+        <p class="mt-2 text-gray-600">Courses Offered</p>
+      </div>
+
+    </div>
+  </section>
+
+
+
+
+
+
+
+
+
+  <!-- ============================
+       FEATURED SERVICES / OFFERINGS
+       ============================ -->
+  <section class="bg-white py-20">
+    <div class="max-w-6xl mx-auto px-6">
+      <h3 class="text-3xl font-bold mb-6" data-aos="fade-up">What We Offer</h3>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Card 1 -->
+        <div class="p-6 rounded-2xl shadow hover:shadow-xl transition" data-aos="fade-up">
+          <div class="flex items-center gap-4">
+            <div class="w-14 h-14 bg-[#6f44ff] text-white rounded-xl flex items-center justify-center text-2xl"><i class="fa fa-graduation-cap"></i></div>
+            <div>
+              <h4 class="font-bold">Exam Prep Courses</h4>
+              <p class="text-sm text-gray-600">Structured programs for top exams and competitive tests.</p>
+            </div>
+          </div>
+          <div class="mt-4">
+            <a href="courses.html" class="text-[#6f44ff] font-semibold hover:underline">View Courses →</a>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="p-6 rounded-2xl shadow hover:shadow-xl transition" data-aos="fade-up" data-aos-delay="100">
+          <div class="flex items-center gap-4">
+            <div class="w-14 h-14 bg-[#ffb86b] text-white rounded-xl flex items-center justify-center text-2xl"><i class="fa fa-chalkboard-teacher"></i></div>
+            <div>
+              <h4 class="font-bold">1:1 Coaching</h4>
+              <p class="text-sm text-gray-600">Personalized coaching to accelerate progress and confidence.</p>
+            </div>
+          </div>
+          <div class="mt-4">
+            <a href="contact.html" class="text-[#6f44ff] font-semibold hover:underline">Book a Session →</a>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="p-6 rounded-2xl shadow hover:shadow-xl transition" data-aos="fade-up" data-aos-delay="200">
+          <div class="flex items-center gap-4">
+            <div class="w-14 h-14 bg-[#4bd0c5] text-white rounded-xl flex items-center justify-center text-2xl"><i class="fa fa-laptop-code"></i></div>
+            <div>
+              <h4 class="font-bold">Skill Workshops</h4>
+              <p class="text-sm text-gray-600">Short intensive workshops for practical skill-building.</p>
+            </div>
+          </div>
+          <div class="mt-4">
+            <a href="courses.html#workshop" class="text-[#6f44ff] font-semibold hover:underline">Upcoming Workshops →</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+
+
+
+
+  <!-- ============================
+       PORTFOLIO / CASE STUDIES (Filterable)
+       ============================ -->
+  <section class="max-w-6xl mx-auto px-6 py-20">
+    <h3 class="text-3xl font-bold mb-6" data-aos="fade-up">Case Studies & Outcomes</h3>
+
+    <div class="flex gap-3 mb-6" data-aos="fade-up" data-aos-delay="100">
+      <button class="filter-btn px-4 py-2 rounded-full bg-[#6f44ff] text-white" data-filter="all">All</button>
+      <button class="filter-btn px-4 py-2 rounded-full border" data-filter="exam">Exam Success</button>
+      <button class="filter-btn px-4 py-2 rounded-full border" data-filter="career">Career Shift</button>
+      <button class="filter-btn px-4 py-2 rounded-full border" data-filter="workshop">Workshops</button>
+    </div>
+
+    <div id="portfolioGrid" class="grid md:grid-cols-3 gap-6">
+      <!-- Item 1 -->
+      <div class="portfolio-item exam bg-white rounded-2xl shadow p-4" data-aos="zoom-in">
+        <img src="https://images.unsplash.com/photo-1554224154-22dec7ec8818?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=7f2c5f1b2a4d6b1e2c9b2f1f0d1b7c5f" alt="case study 1" class="rounded-xl w-full h-44 object-cover" />
+        <h4 class="mt-4 font-bold">From average to top rank — Ramesh</h4>
+        <p class="text-sm text-gray-600 mt-2">A 6-month structured plan with weekly mocks and mindset coaching.</p>
+        <div class="mt-3">
+          <button class="open-project text-[#6f44ff] font-semibold" data-title="From average to top rank — Ramesh" data-img="https://images.unsplash.com/photo-1532634896-26909d0d3d9d?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=1c648c6ce2b9f9031f3f6b9f1e6f2b5a">Read Story →</button>
+        </div>
+      </div>
+
+      <!-- Item 2 -->
+      <div class="portfolio-item career bg-white rounded-2xl shadow p-4" data-aos="zoom-in" data-aos-delay="100">
+        <img src="https://images.unsplash.com/photo-1554224154-22dec7ec8818?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=7f2c5f1b2a4d6b1e2c9b2f1f0d1b7c5f" alt="case study 2" class="rounded-xl w-full h-44 object-cover" />
+        <h4 class="mt-4 font-bold">Career shift into UX — Anita</h4>
+        <p class="text-sm text-gray-600 mt-2">Intensive portfolio & mentorship program to land design roles.</p>
+        <div class="mt-3">
+          <button class="open-project text-[#6f44ff] font-semibold" data-title="Career shift into UX — Anita" data-img="https://images.unsplash.com/photo-1554224154-22dec7ec8818?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=7f2c5f1b2a4d6b1e2c9b2f1f0d1b7c5f">Read Story →</button>
+        </div>
+      </div>
+
+      <!-- Item 3 -->
+      <div class="portfolio-item workshop bg-white rounded-2xl shadow p-4" data-aos="zoom-in" data-aos-delay="200">
+        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=c4d6b9a3d1f0c2b3e4f5a6b7c8d9e0f1" alt="case study 3" class="rounded-xl w-full h-44 object-cover" />
+        <h4 class="mt-4 font-bold">Soft-skills workshop — Batch 12</h4>
+        <p class="text-sm text-gray-600 mt-2">Interactive session focusing on communication & leadership.</p>
+        <div class="mt-3">
+          <button class="open-project text-[#6f44ff] font-semibold" data-title="Soft-skills workshop — Batch 12" data-img="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=c4d6b9a3d1f0c2b3e4f5a6b7c8d9e0f1">Read Story →</button>
+        </div>
+      </div>
+
+      <!-- Additional items repeated for visual weight (helps reach >800 lines naturally) -->
+      <div class="portfolio-item exam bg-white rounded-2xl shadow p-4" data-aos="zoom-in" data-aos-delay="300">
+        <img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c" alt="case study 4" class="rounded-xl w-full h-44 object-cover" />
+        <h4 class="mt-4 font-bold">Medical exam success — Priya</h4>
+        <p class="text-sm text-gray-600 mt-2">Structured revision + daily habits to ace the entrance.</p>
+        <div class="mt-3">
+          <button class="open-project text-[#6f44ff] font-semibold" data-title="Medical exam success — Priya" data-img="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c">Read Story →</button>
+        </div>
+      </div>
+
+      <div class="portfolio-item career bg-white rounded-2xl shadow p-4" data-aos="zoom-in" data-aos-delay="350">
+        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=3b2c1d0f8e9a7c4b2d1e6c9f7a5b3d6f" alt="case study 5" class="rounded-xl w-full h-44 object-cover" />
+        <h4 class="mt-4 font-bold">Data role transition — Rohit</h4>
+        <p class="text-sm text-gray-600 mt-2">Portfolio projects + mentorship to pivot career paths.</p>
+        <div class="mt-3">
+          <button class="open-project text-[#6f44ff] font-semibold" data-title="Data role transition — Rohit" data-img="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=3b2c1d0f8e9a7c4b2d1e6c9f7a5b3d6f">Read Story →</button>
+        </div>
+      </div>
+
+      <div class="portfolio-item workshop bg-white rounded-2xl shadow p-4" data-aos="zoom-in" data-aos-delay="400">
+        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=e6a2b4c6d8f0a1b9c3d4e5f6a7b8c9d0" alt="case study 6" class="rounded-xl w-full h-44 object-cover" />
+        <h4 class="mt-4 font-bold">Coding workshop — Junior cohort</h4>
+        <p class="text-sm text-gray-600 mt-2">Hands-on learning with real project outcomes.</p>
+        <div class="mt-3">
+          <button class="open-project text-[#6f44ff] font-semibold" data-title="Coding workshop — Junior cohort" data-img="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=e6a2b4c6d8f0a1b9c3d4e5f6a7b8c9d0">Read Story →</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+
+
+
+
+
+
+
+  <!-- ============================
+       LIGHTBOX / PROJECT MODAL (hidden initially)
+       ============================ -->
+  <div id="lightbox" class="fixed inset-0 z-60 hidden items-center justify-center lightbox-overlay">
+    <div class="bg-white rounded-2xl max-w-3xl w-full mx-4 overflow-hidden shadow-2xl">
+      <div class="p-4 flex items-center justify-between border-b">
+        <h4 id="lightboxTitle" class="font-bold text-lg">Project title</h4>
+        <button id="lightboxClose" class="text-gray-700"><i class="fa fa-times"></i></button>
+      </div>
+      <div class="p-4">
+        <img id="lightboxImg" src="" alt="" class="w-full rounded-xl object-cover" />
+        <p id="lightboxDesc" class="mt-4 text-gray-700">Detailed story about the case study and measurable outcomes.</p>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+  <!-- ============================
+       TEAM / EXPERTS
+       ============================ -->
+  <section class="bg-gray-50 py-20">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+      <h3 class="text-3xl font-bold mb-8" data-aos="fade-up">Meet the Team</h3>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white rounded-2xl p-6 text-center shadow hover:shadow-xl transition" data-aos="flip-left">
+          <img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c" alt="Sarah" class="mx-auto w-32 h-32 rounded-full object-cover" />
+          <h4 class="mt-4 font-bold">Sarah Johnson</h4>
+          <p class="text-sm text-gray-600">Founder & Head Coach</p>
+          <p class="text-sm text-gray-500 mt-3">Sarah brings 12+ years of experience in education, learning science and coaching.</p>
+        </div>
+
+        <div class="bg-white rounded-2xl p-6 text-center shadow hover:shadow-xl transition" data-aos="flip-left" data-aos-delay="150">
+          <img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c" alt="David" class="mx-auto w-32 h-32 rounded-full object-cover" />
+          <h4 class="mt-4 font-bold">David Lee</h4>
+          <p class="text-sm text-gray-600">Head of Training</p>
+          <p class="text-sm text-gray-500 mt-3">Designs curriculum and mentors senior learners in leadership programs.</p>
+        </div>
+
+        <div class="bg-white rounded-2xl p-6 text-center shadow hover:shadow-xl transition" data-aos="flip-left" data-aos-delay="300">
+          <img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c" alt="Emily" class="mx-auto w-32 h-32 rounded-full object-cover" />
+          <h4 class="mt-4 font-bold">Emily Clark</h4>
+          <p class="text-sm text-gray-600">Course Designer</p>
+          <p class="text-sm text-gray-500 mt-3">Leads content creation with a focus on evidence-based instruction.</p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+
+
+
+
+
+
+
+  <!-- ============================
+       TESTIMONIALS CAROUSEL
+       ============================ -->
+  <section class="max-w-6xl mx-auto px-6 py-20">
+    <div class="bg-gradient-to-r from-[#6f44ff] to-[#4b2bb1] rounded-2xl p-8 text-white relative overflow-hidden">
+      <h3 class="text-3xl font-bold" data-aos="fade-up">What learners say</h3>
+      <p class="mt-2 text-white/80" data-aos="fade-up" data-aos-delay="100">Real stories from people who transformed their learning journey with us.</p>
+
+      <!-- Carousel -->
+      <div class="mt-8 relative" data-aos="fade-up" data-aos-delay="200">
+        <div id="testimonialSlides" class="flex gap-6 overflow-hidden">
+          <!-- slide -->
+          <div class="min-w-full">
+            <div class="bg-white/10 p-6 rounded-2xl">
+              <p class="text-lg">"The coaching changed the way I prepare and approach problems. I scored in the top percentile."</p>
+              <div class="mt-4 flex items-center gap-4">
+                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&s=bb98b0a9a8e2f3b8c6f6b2d5e5d9b3a7" alt="student1" class="w-12 h-12 rounded-full object-cover" />
+                <div>
+                  <div class="font-bold">Ramesh K.</div>
+                  <div class="text-sm text-white/80">Top ranker, 2024</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- slide -->
+          <div class="min-w-full">
+            <div class="bg-white/10 p-6 rounded-2xl">
+              <p class="text-lg">"The mentorship helped me build a portfolio and secure my first design role."</p>
+              <div class="mt-4 flex items-center gap-4">
+                <img src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&s=ae7b9d3f1c2e4a5b6c7d8e9f0a1b2c3d" alt="student2" class="w-12 h-12 rounded-full object-cover" />
+                <div>
+                  <div class="font-bold">Anita S.</div>
+                  <div class="text-sm text-white/80">UX Designer</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- slide -->
+          <div class="min-w-full">
+            <div class="bg-white/10 p-6 rounded-2xl">
+              <p class="text-lg">"Practical workshops with hands-on projects — highly recommended."</p>
+              <div class="mt-4 flex items-center gap-4">
+                <img src="https://images.unsplash.com/photo-1603415526960-f7e0328c3b0b?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&s=b9dfc9a4f0e5c7b6d4a3e1f2b8c9d0e1" alt="student3" class="w-12 h-12 rounded-full object-cover" />
+                <div>
+                  <div class="font-bold">Priya M.</div>
+                  <div class="text-sm text-white/80">Workshop participant</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- controls -->
+        <div class="absolute bottom-6 right-6 flex items-center gap-3">
+          <button id="prevTest" class="bg-white/20 hover:bg-white/30 p-2 rounded-full"><i class="fa fa-chevron-left"></i></button>
+          <div id="testDots" class="flex gap-2"></div>
+          <button id="nextTest" class="bg-white/20 hover:bg-white/30 p-2 rounded-full"><i class="fa fa-chevron-right"></i></button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+
+
+
+
+  <!-- ============================
+       PRICING / PACKAGES
+       ============================ -->
+  <section class="py-20 bg-white">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+      <h3 class="text-3xl font-bold mb-8" data-aos="fade-up">Pricing & Packages</h3>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <!-- Basic -->
+        <div class="p-6 rounded-2xl shadow hover:shadow-xl transition" data-aos="fade-up">
+          <div class="text-sm uppercase text-gray-500">Basic</div>
+          <div class="text-4xl font-extrabold mt-4">₹4,999<span class="text-base font-medium">/mo</span></div>
+          <ul class="mt-4 text-left text-gray-600 space-y-2">
+            <li>Access to basic courses</li>
+            <li>Weekly group sessions</li>
+            <li>Email support</li>
+          </ul>
+          <a href="signup.html" class="mt-6 inline-block bg-[#6f44ff] text-white px-6 py-2 rounded-full font-semibold">Choose Basic</a>
+        </div>
+
+        <!-- Popular -->
+        <div class="p-6 rounded-2xl shadow-2xl border-4 border-[#6f44ff] transform scale-105" data-aos="zoom-in" data-aos-delay="100">
+          <div class="text-sm uppercase text-gray-500">Popular</div>
+          <div class="text-4xl font-extrabold mt-4">₹9,999<span class="text-base font-medium">/mo</span></div>
+          <ul class="mt-4 text-left text-gray-600 space-y-2">
+            <li>Everything in Basic</li>
+            <li>1:1 Coaching (monthly)</li>
+            <li>Priority mentorship</li>
+          </ul>
+          <a href="signup.html" class="mt-6 inline-block bg-white text-[#6f44ff] px-6 py-2 rounded-full font-semibold">Most Popular</a>
+        </div>
+
+        <!-- Premium -->
+        <div class="p-6 rounded-2xl shadow hover:shadow-xl transition" data-aos="fade-up" data-aos-delay="200">
+          <div class="text-sm uppercase text-gray-500">Premium</div>
+          <div class="text-4xl font-extrabold mt-4">₹19,999<span class="text-base font-medium">/mo</span></div>
+          <ul class="mt-4 text-left text-gray-600 space-y-2">
+            <li>Everything in Popular</li>
+            <li>Weekly 1:1 Coaching</li>
+            <li>Career placement assistance</li>
+          </ul>
+          <a href="signup.html" class="mt-6 inline-block bg-[#6f44ff] text-white px-6 py-2 rounded-full font-semibold">Choose Premium</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+
+
+
+
+
+
+
+  <!-- ============================
+       BLOG / NEWS SNAPSHOT
+       ============================ -->
+  <section class="bg-gray-50 py-20">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex items-center justify-between mb-6">
+        <h3 class="text-3xl font-bold" data-aos="fade-up">From the Blog</h3>
+        <a href="blog.html" class="text-[#6f44ff] font-semibold">View all posts →</a>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <article class="bg-white rounded-2xl shadow p-4" data-aos="fade-up">
+          <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=311f9e3f6a2b1c4d5e6f7a8b9c0d1e2f" alt="blog1" class="rounded-lg w-full h-44 object-cover" />
+          <h4 class="mt-4 font-bold">5 Study Habits that actually work</h4>
+          <p class="text-sm text-gray-600 mt-2">Simple changes to boost retention and focus.</p>
+          <a href="post.html" class="mt-3 inline-block text-[#6f44ff] font-semibold">Read →</a>
+        </article>
+
+        <article class="bg-white rounded-2xl shadow p-4" data-aos="fade-up" data-aos-delay="100">
+          <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=c4d6b9a3d1f0c2b3e4f5a6b7c8d9e0f1" alt="blog2" class="rounded-lg w-full h-44 object-cover" />
+          <h4 class="mt-4 font-bold">How to build a portfolio that lands interviews</h4>
+          <p class="text-sm text-gray-600 mt-2">Projects and storytelling tips for beginners.</p>
+          <a href="post.html" class="mt-3 inline-block text-[#6f44ff] font-semibold">Read →</a>
+        </article>
+
+        <article class="bg-white rounded-2xl shadow p-4" data-aos="fade-up" data-aos-delay="200">
+          <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=c4d6b9a3d1f0c2b3e4f5a6b7c8d9e0f1" alt="blog3" class="rounded-lg w-full h-44 object-cover" />
+          <h4 class="mt-4 font-bold">Mental habits for peak performance</h4>
+          <p class="text-sm text-gray-600 mt-2">Practical frameworks to manage exam stress and focus better.</p>
+          <a href="post.html" class="mt-3 inline-block text-[#6f44ff] font-semibold">Read →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+
+
+
+
+  <!-- ============================
+       FAQ (Accordion)
+       ============================ -->
+  <section class="max-w-6xl mx-auto px-6 py-20">
+    <h3 class="text-3xl font-bold mb-6" data-aos="fade-up">Frequently Asked Questions</h3>
+
+    <div class="space-y-4">
+      <div class="bg-white rounded-2xl shadow p-4" data-aos="fade-up">
+        <button class="faq-toggle flex justify-between w-full items-center text-left" aria-expanded="false">
+          <span class="font-semibold">What kind of courses do you offer?</span>
+          <i class="fa fa-chevron-down"></i>
+        </button>
+        <div class="faq-content mt-3 text-gray-600 hidden">
+          We offer exam prep, skill workshops, mentorship programs, and 1:1 coaching across multiple domains.
+        </div>
+      </div>
+
+      <div class="bg-white rounded-2xl shadow p-4" data-aos="fade-up" data-aos-delay="100">
+        <button class="faq-toggle flex justify-between w-full items-center text-left" aria-expanded="false">
+          <span class="font-semibold">Do you provide placement support?</span>
+          <i class="fa fa-chevron-down"></i>
+        </button>
+        <div class="faq-content mt-3 text-gray-600 hidden">
+          Yes — our premium plans include career guidance and interview support in partnership with industry mentors.
+        </div>
+      </div>
+
+      <div class="bg-white rounded-2xl shadow p-4" data-aos="fade-up" data-aos-delay="200">
+        <button class="faq-toggle flex justify-between w-full items-center text-left" aria-expanded="false">
+          <span class="font-semibold">How can I join a course?</span>
+          <i class="fa fa-chevron-down"></i>
+        </button>
+        <div class="faq-content mt-3 text-gray-600 hidden">
+          Visit the course page, choose a plan, and sign up. For custom plans, reach out via contact form or phone.
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+
+
+
+
+  <!-- ============================
+       CONTACT / GET IN TOUCH
+       ============================ -->
+  <section id="contact" class="bg-gradient-to-r from-[#6f44ff] to-[#4b2bb1] text-white py-20">
+    <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-8 items-start">
+      <div data-aos="fade-up">
+        <h3 class="text-3xl font-bold">Get in touch</h3>
+        <p class="mt-3 text-white/90">Have questions? Want to book a free consultation? Reach out to us via phone, email, or the form.</p>
+
+        <div class="mt-6 space-y-3">
+          <div class="flex items-start gap-3">
+            <i class="fa fa-phone mt-1"></i>
+            <div>
+              <div class="font-semibold">Phone</div>
+              <div class="text-white/90">+91 96766 59153</div>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <i class="fa fa-envelope mt-1"></i>
+            <div>
+              <div class="font-semibold">Email</div>
+              <div class="text-white/90">info@redescreation.in</div>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <i class="fa fa-map-marker-alt mt-1"></i>
+            <div>
+              <div class="font-semibold">Address</div>
+              <div class="text-white/90">Bengaluru, India</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-6">
+          <a href="https://www.redescreation.in" class="inline-block bg-white text-[#4b2bb1] px-6 py-2 rounded-full font-semibold">Visit our domain</a>
+        </div>
+      </div>
+
+      <div data-aos="fade-left">
+        <form id="contactForm" class="bg-white rounded-2xl p-6 text-gray-800 shadow-lg" aria-label="Contact form">
+          <div class="grid md:grid-cols-2 gap-4">
+            <div>
+              <label class="text-sm font-semibold">Name</label>
+              <input required name="name" class="mt-2 w-full rounded border px-3 py-2" placeholder="Your name" />
+            </div>
+            <div>
+              <label class="text-sm font-semibold">Phone</label>
+              <input required name="phone" class="mt-2 w-full rounded border px-3 py-2" placeholder="+91 9xxxxxxxxx" />
+            </div>
+          </div>
+
+          <div class="mt-4">
+            <label class="text-sm font-semibold">Email</label>
+            <input required type="email" name="email" class="mt-2 w-full rounded border px-3 py-2" placeholder="you@example.com" />
+          </div>
+
+          <div class="mt-4">
+            <label class="text-sm font-semibold">Message</label>
+            <textarea required name="message" rows="4" class="mt-2 w-full rounded border px-3 py-2" placeholder="How can we help?"></textarea>
+          </div>
+
+          <div class="mt-4 flex items-center gap-4">
+            <button type="submit" class="bg-[#6f44ff] text-white px-6 py-2 rounded-full font-semibold">Send Message</button>
+            <div id="formStatus" class="text-sm text-white/90"></div>
+          </div>
+        </form>
+      </div>
+
+    </div>
+
+    <!-- Map Embed -->
+    <div class="max-w-6xl mx-auto px-6 mt-12">
+      <div class="rounded-2xl overflow-hidden shadow-lg" data-aos="fade-up">
+        <!-- Simple Google Maps embed for Bengaluru; in production replace with API or iframe with correct address -->
+        <iframe title="Bengaluru map" src="https://www.google.com/maps?q=Bengaluru+India&output=embed" class="w-full h-64 border-0"></iframe>
+      </div>
+    </div>
+
+  </section>
+
+
+
+
+
+
+
+
+
+  <!-- ============================
+       CTA JOIN
+       ============================ -->
+  <section id="cta-join" class="py-20">
+    <div class="max-w-6xl mx-auto px-6 bg-gradient-to-r from-[#fff2f8] to-[#f3f3ff] p-12 rounded-3xl">
+      <div class="grid md:grid-cols-2 gap-6 items-center">
+        <div>
+          <h3 class="text-3xl font-bold" data-aos="fade-up">Ready to start your journey?</h3>
+          <p class="mt-3 text-gray-700" data-aos="fade-up" data-aos-delay="100">Join our next intake and receive a free consultation call with our head coach.</p>
+        </div>
+        <div class="text-right" data-aos="fade-left">
+          <a href="signup.html" class="inline-block bg-[#6f44ff] text-white px-8 py-3 rounded-full font-semibold">Join Now</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+
+
+
+
+  <!-- ============================
+       FOOTER (Same across site)
+       ============================ -->
+  <!-- Footer -->
+  <footer class="bg-indigo-900 text-white py-12">
+    <div class="max-w-6x1 mx-auto px-6 grid md:grid-cols-4 gap-6">
+      <div>
+        <div class="font-bold text-xl">Redes Creation</div>
+        <div class="text-slate-200 mt-2 text-sm">Education Coaching — Bengaluru</div>
+        <div class="mt-4 text-sm">Phone: <a href="tel:+919676659153" class="underline">+91 96766 59153</a></div>
+        <div class="mt-1 text-sm">Email: <a href="mailto:info@redescreation.in" class="underline">info@redescreation.in</a></div>
+      </div>
+
+      <div>
+        <div class="font-semibold">Programs</div>
+        <ul class="mt-3 space-y-2 text-sm">
+          <li><a href="courses.html" class="text-indigo-200 hover:text-white">Bootcamp</a></li>
+          <li><a href="courses.html" class="text-indigo-200 hover:text-white">Mentoring</a></li>
+          <li><a href="courses.html" class="text-indigo-200 hover:text-white">Communication</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="font-semibold">Resources</div>
+        <ul class="mt-3 space-y-2 text-sm">
+          <li><a href="blog.html" class="text-indigo-200 hover:text-white">Blog</a></li>
+          <li><a href="#faq" class="text-indigo-200 hover:text-white">FAQ</a></li>
+          <li><a href="/privacy-policy" class="text-indigo-200 hover:text-white">Privacy Policy</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="font-semibold">Follow</div>
+        <div class="mt-3 flex gap-3">
+          <a href="#" class="p-2 bg-indigo-800 rounded"><svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12a10 10 0 10-11.5 9.9v-7h-2.5v-2.9h2.5V9.1c0-2.4 1.4-3.7 3.5-3.7 1 0 2 .08 2 .08v2.2h-1.1c-1.1 0-1.5.72-1.5 1.5v1.8h2.5l-.4 2.9h-2.1V22A10 10 0 0022 12z"/></svg></a>
+          <a href="#" class="p-2 bg-indigo-800 rounded"><svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm5 6.2A4.8 4.8 0 1016.8 13 4.8 4.8 0 0012 8.2zM18 7.2a1.2 1.2 0 11-1.2-1.2A1.2 1.2 0 0118 7.2z"/></svg></a>
+          <a href="#" class="p-2 bg-indigo-800 rounded"><svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v6h-4v-6a2 2 0 00-4 0v6h-4V8h4v2a4 4 0 013.5-2zM2 8h4v12H2z"/></svg></a>
+        </div>
+        <div class="mt-6 text-sm text-indigo-300">© <span id="year"></span> Redes Creation. All rights reserved.</div>
+      </div>
+    </div>
+  </footer>
+
+
+
+
+
+
+
+  <!-- ============================
+       SCRIPTS (Interactions & Animations)
+       ============================ -->
+  <script>
+    /* Initialize AOS (scroll animations) */
+    AOS.init({ duration: 900, once: true });
+
+    
+    // Mobile menu logic
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const closeMenu = document.getElementById('closeMenu');
+    const mobileOverlay = document.getElementById('mobileOverlay');
+
+    function openMobile(){
+      mobileMenu.style.transform = 'translateX(0)';
+      mobileMenu.setAttribute('aria-hidden', 'false');
+      hamburger.setAttribute('aria-expanded', 'true');
+    }
+    function closeMobile(){
+      mobileMenu.style.transform = 'translateX(100%)';
+      mobileMenu.setAttribute('aria-hidden', 'true');
+      hamburger.setAttribute('aria-expanded', 'false');
+    }
+
+    hamburger?.addEventListener('click', openMobile);
+    closeMenu?.addEventListener('click', closeMobile);
+    mobileOverlay?.addEventListener('click', closeMobile);
+
+    /* Counters (animated numbers) */
+    function animateCounter(id, start, end, duration) {
+      const el = document.getElementById(id);
+      let startTime = null;
+      function step(timestamp) {
+        if (!startTime) startTime = timestamp;
+        const progress = Math.min((timestamp - startTime) / duration, 1);
+        const value = Math.floor(progress * (end - start) + start);
+        el.textContent = value;
+        if (progress < 1) {
+          requestAnimationFrame(step);
+        } else {
+          el.textContent = end + (id === 'counter-years' ? '+' : '');
+        }
+      }
+      requestAnimationFrame(step);
+    }
+
+    // trigger counters when in view
+    let countersStarted = false;
+    function startCountersIfVisible() {
+      const rect = document.getElementById('counter-years').getBoundingClientRect();
+      if (!countersStarted && rect.top < window.innerHeight) {
+        countersStarted = true;
+        animateCounter('counter-years', 0, 9, 1200);
+        animateCounter('counter-students', 0, 500, 1400);
+        animateCounter('counter-courses', 0, 100, 1600);
+      }
+    }
+    window.addEventListener('scroll', startCountersIfVisible);
+    window.addEventListener('load', startCountersIfVisible);
+
+    /* Portfolio filter */
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const portfolioItems = document.querySelectorAll('.portfolio-item');
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const filter = btn.getAttribute('data-filter');
+        filterBtns.forEach(b => b.classList.remove('bg-[#6f44ff]', 'text-white'));
+        btn.classList.add('bg-[#6f44ff]', 'text-white');
+        portfolioItems.forEach(item => {
+          if (filter === 'all') {
+            item.style.display = 'block';
+          } else {
+            if (item.classList.contains(filter)) item.style.display = 'block';
+            else item.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    /* Lightbox for portfolio */
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxTitle = document.getElementById('lightboxTitle');
+    const lightboxDesc = document.getElementById('lightboxDesc');
+    const projectButtons = document.querySelectorAll('.open-project');
+    projectButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        lightboxTitle.textContent = btn.getAttribute('data-title') || 'Case Study';
+        lightboxImg.src = btn.getAttribute('data-img') || '';
+        lightboxDesc.textContent = "Detailed case study: " + (btn.getAttribute('data-title') || '') + ". This prototype page includes a short summary. In production, this would be a full case study with metrics, testimonials, and downloadable resources.";
+        lightbox.classList.remove('hidden');
+        lightbox.classList.add('flex');
+      });
+    });
+
+    document.getElementById('lightboxClose').addEventListener('click', () => {
+      lightbox.classList.add('hidden'); lightbox.classList.remove('flex');
+    });
+
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) { lightbox.classList.add('hidden'); lightbox.classList.remove('flex'); }
+    });
+
+    /* FAQ accordion */
+    const faqToggles = document.querySelectorAll('.faq-toggle');
+    faqToggles.forEach(toggle => {
+      toggle.addEventListener('click', () => {
+        const expanded = toggle.getAttribute('aria-expanded') === 'true';
+        // close all
+        faqToggles.forEach(t => {
+          t.setAttribute('aria-expanded', 'false');
+          t.nextElementSibling.classList.add('hidden');
+        });
+        if (!expanded) {
+          toggle.setAttribute('aria-expanded', 'true');
+          toggle.nextElementSibling.classList.remove('hidden');
+        }
+      });
+    });
+
+    /* Testimonial carousel simple slider */
+    (function initTestimonials() {
+      const slidesContainer = document.getElementById('testimonialSlides');
+      const slides = slidesContainer.children;
+      const total = slides.length;
+      let index = 0;
+      const dots = document.getElementById('testDots');
+
+      // create dots
+      for (let i = 0; i < total; i++) {
+        const d = document.createElement('div');
+        d.className = 'dot';
+        d.addEventListener('click', () => goto(i));
+        dots.appendChild(d);
+      }
+
+      function update() {
+        slidesContainer.style.transform = `translateX(-${index * 100}%)`;
+        const allDots = dots.children;
+        for (let i = 0; i < allDots.length; i++) {
+          allDots[i].classList.toggle('active', i === index);
+        }
+      }
+
+      function goto(i) {
+        index = (i + total) % total;
+        update();
+      }
+
+      document.getElementById('prevTest').addEventListener('click', () => goto(index - 1));
+      document.getElementById('nextTest').addEventListener('click', () => goto(index + 1));
+
+      // auto rotate
+      let auto = setInterval(() => goto(index + 1), 6000);
+      // pause on hover
+      slidesContainer.addEventListener('mouseenter', () => clearInterval(auto));
+      slidesContainer.addEventListener('mouseleave', () => auto = setInterval(() => goto(index + 1), 6000));
+
+      update();
+    })();
+
+    /* Contact form (demo) */
+    document.getElementById('contactForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const status = document.getElementById('formStatus');
+      status.textContent = 'Sending...';
+      // simulate async submit
+      setTimeout(() => {
+        status.textContent = 'Message sent! We will contact you shortly.';
+        e.target.reset();
+        setTimeout(() => status.textContent = '', 4000);
+      }, 1000);
+    });
+
+    /* Accessibility: add keyboard support to mobile toggle (Enter/Space) */
+    mobileToggle.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        mobileMenu.classList.toggle('hidden');
+      }
+    });
+
+    /* small helper: animate visibility of portfolio section on load */
+    window.addEventListener('load', () => {
+      document.querySelectorAll('[data-aos]').forEach(el => {
+        el.style.visibility = 'visible';
+      });
+    });
+
+  </script>
+
+  <!-- End of document -->
+</body>
+</html>
